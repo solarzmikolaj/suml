@@ -2,9 +2,7 @@ import streamlit as st
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
 
-# -------------------------------
-# Ustawienia strony
-# -------------------------------
+
 st.set_page_config(page_title="EN → DE Translator", page_icon="🌍")
 st.balloons()
 st.title("🌍 English → German Translator")
@@ -13,15 +11,10 @@ Aplikacja tłumacząca tekst z **angielskiego na niemiecki**
 przy użyciu modelu **Helsinki-NLP/opus-mt-en-de**.
 """)
 
-# Obrazki 🇩🇪
 st.image("https://www.publicdomainpictures.net/pictures/250000/velka/german-flag.jpg", width=200)
 st.image("https://wallpaperaccess.com/full/96007.jpg", width=200)
 st.divider()
 
-# -------------------------------
-# Ładowanie modelu przy starcie
-# -------------------------------
-@st.cache_resource(show_spinner=True)
 def load_model():
     tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-en-de", use_fast=False)
     model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-en-de")
@@ -36,9 +29,6 @@ with st.spinner("⏳ Ładowanie modelu tłumaczącego..."):
 st.success("✅ Model został załadowany pomyślnie!")
 st.divider()
 
-# -------------------------------
-# Pole tekstowe i tłumaczenie
-# -------------------------------
 text = st.text_area("✏️ Wpisz tekst po angielsku:", height=150)
 
 if st.button("🔁 Tłumacz"):
