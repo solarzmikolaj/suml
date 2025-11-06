@@ -32,7 +32,7 @@ def load_sentiment_pipeline():
 option = st.selectbox(
     "Opcje",
     [
-        "Wydźwięk emocjonalny tekstu (eng)",
+        "Wydźwięk emocjonalny tekstu",
         "Tłumacz EN → DE",
     ],
 )
