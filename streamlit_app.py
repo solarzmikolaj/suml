@@ -40,8 +40,8 @@ option = st.selectbox(
 st.divider()
 
 
-if option == "Wydźwięk emocjonalny tekstu (eng)":
-    text = st.text_area(label="✏️ Wpisz tekst po angielsku do analizy:", height=150, key="sent_text")
+if option == "Wydźwięk emocjonalny tekstu":
+    text = st.text_area(label="✏️ Wpisz tekst do analizy:", height=150, key="sent_text")
     
     if st.button("🧠 Analizuj wydźwięk"):
         if not text.strip():
