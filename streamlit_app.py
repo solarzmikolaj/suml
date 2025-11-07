@@ -64,6 +64,7 @@ elif option == "Tłumacz EN → DE":
             st.error("⚠️ Proszę wpisać tekst do tłumaczenia!")
         else:
             try:
+                tokenizer, model = load_translation_model()  # ⬅️ DODANE
                 enc = tokenizer(text, return_tensors="pt", truncation=True)
                 with torch.no_grad():
                     out = model.generate(
